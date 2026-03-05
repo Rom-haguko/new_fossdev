@@ -9,7 +9,7 @@
 # [DONE] Тесты не должны дублировать логику тестируемого кода
 # и не делать предположений о внутреннем устройстве кода
 
-# Тесты не должны использовать ВСЕ наборы входных параметров
+# [DONE] Тесты не должны использовать ВСЕ наборы входных параметров
 # Тесты должны покрывать "кластеры" входных параметров
 # Тесты должны обнаруживать новые ошибки (pescicide paradox)
 # Тесты покрывают как успешные так и ошибочные кейсы
@@ -37,7 +37,16 @@ def test_addition_duplicate():
     assert add(6, 7) == 6 + 7 
     print("Test DUPLICATE ADDITION PASSED")
 
+def test_addition_overkill():
+    for i in range(0, 2 ** 32):
+        for j in range(0, 2 ** 32):
+            assert add(i, j) == i + j # violation of duplication 
+            assert add(-i, j) == -i + j
+            assert add(-i, -j) == -i - j
+            assert add(i, -j) == i - j
+
 if __name__ == "__main__":
     test_addition()
     test_addition_with_bug()
     test_addition_duplicate()
+    #test_addition_overkill() # can try it on your risk
