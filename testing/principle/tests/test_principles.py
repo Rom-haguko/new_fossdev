@@ -17,7 +17,7 @@
 # одних и тех же типов может препятсвовать этому 
 # (pescicide paradox)
 
-# Тесты покрывают как успешные так и ошибочные кейсы
+# []Тесты покрывают как успешные так и ошибочные кейсы
 
 from math_demo import (
     add,
@@ -88,6 +88,13 @@ def test_tax_caculator():
     print("Test UNBUGGED TAX CALCULATOR PASSED")
     assert calculate_tax(2.34) == 0.35 # 0.351
 
+def test_negative_income():
+    try:
+        calculate_tax(-100)
+        print("Test NEGATIVE INCOME FAILED")
+    except ValueError as e:
+        print("Test NEGATIVE INCOME PASSED")
+
 
 if __name__ == "__main__":
     test_addition()
@@ -98,3 +105,4 @@ if __name__ == "__main__":
     test_addition_commutative()
     test_tax_caculator_pesticide()
     test_tax_caculator()
+    test_negative_income()
