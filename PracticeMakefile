@@ -8,7 +8,7 @@ create-structure:
 install-dep:
 	pip install -r requirements.txt
 
-build:
+install:
 	pip install -e .
 
 
