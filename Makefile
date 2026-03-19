@@ -1,3 +1,6 @@
+.DEFAULT_COAL := help
+
+
 create-practice:
 ifndef PRACTICE
 	$(error must pass val PRACTICE)
