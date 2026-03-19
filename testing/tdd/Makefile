@@ -12,3 +12,5 @@ install:
 
 test-pytest:
 	python3 -m pytest
+
+test: install-dep install test-pytest
