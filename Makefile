@@ -1,4 +1,4 @@
-.DEFAULT_COAL := help
+.DEFAULT_GOAL := help
 
 
 create-practice:
