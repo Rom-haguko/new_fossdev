@@ -1,0 +1,6 @@
+requests
+numpy
+fastapi
+pytest
+mypy
+ruff
