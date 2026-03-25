@@ -44,7 +44,7 @@ check-requirements: install-dev
 	$(PYTHON) scripts/check_requirements.py
 
 typecheck: install-dev
-	$(MYPY) $(SRC)
+	$(MYPY) --config-file mypy.ini $(SRC)
 
 format: install-dev
 	$(RUFF) format $(SRC) $(TESTS)
