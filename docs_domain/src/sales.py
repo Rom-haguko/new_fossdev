@@ -11,6 +11,8 @@ def _parse_record(line: str):
     try:
         unit_price = float(sale[2])
         quantity = int(sale[3])
+        if int(sale[3]) != float(sale[3]):
+            return None
     except ValueError:
         return None
     
