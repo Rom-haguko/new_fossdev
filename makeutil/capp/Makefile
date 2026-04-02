@@ -1,7 +1,7 @@
 .PHONY: another-app
-# make all target are listed in PHONY
+# not all targets are listed in PHONY
 
-# Might be correct, but 'build 'and 'app' are difference
+# Might be correct, but `build` and `app` are different names 
 build: main.c
 	gcc main.c -o app
 
@@ -9,6 +9,7 @@ build: main.c
 app: main.c
 	gcc main.c -o app
 
-#incorrect listed in PHONY
+# incorrect: listed in PHONY
 another-app: main.c
 	gcc main.c -o another-app
+
