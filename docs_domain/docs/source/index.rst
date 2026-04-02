@@ -16,6 +16,5 @@ documentation for details.
    :caption: Contents:
 
    QUICKSTART
-   SPECIFICATION
    USAGE
    api/modules
