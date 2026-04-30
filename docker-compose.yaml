@@ -1,4 +1,4 @@
-service:
+services:
   product-service:
     build: ./product_service
     ports:
@@ -6,15 +6,12 @@ service:
     networks:
       - service-net
 
-
   order-service:
     build: ./order_service
     ports:
       - "8002:8000"
-    networks:
-      - service-net
     environment:
-      PRODUCT_SERVICE_URL: http://product-service:8000
+      PRODUCT_SERVICE_URL: "http://product-service:8000"
     depends_on:
       - product-service
     networks:
@@ -26,4 +23,3 @@ networks:
     ipam:
       config:
         - subnet: 172.28.10.0/24
-
