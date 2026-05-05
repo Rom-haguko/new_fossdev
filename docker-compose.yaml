@@ -17,9 +17,30 @@ services:
     networks:
       - service-net
 
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: orders
+    ports:
+      - "5432:5432"
+    volumes:
+      - order-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d orders"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - service-net
+
 networks:
   service-net:
     driver: bridge
     ipam:
       config:
         - subnet: 172.28.10.0/24
+
+volumes:
+  order-db-data:
