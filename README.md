@@ -1,14 +1,30 @@
-# new_fossdev Repository
+# FOSSDEV Docker Practice
 
 ## Описание
 
-Репозиторий содержит учебные проекты по автоматизации разработки.
+Проект представляет собой систему обработки заказов из нескольких FastAPI-сервисов.
 
-## Где решение
+Сервисы:
 
-Основное решение находится в папке проекта (demo-practice).
+- `product-service` — хранит информацию о товарах;
+- `discount-service` — рассчитывает скидки;
+- `order-service` — создаёт заказы;
+- `db` — PostgreSQL для хранения заказов.
 
-## Быстрый запуск
+## Docker Compose
 
-cd demo-practice
+```bash
+docker compose up --build
+docker compose down
+```
+
+## Makefile
+
+```bash
+make test
+make build
+make compose-up
+make compose-down
+make smoke
 make check
+```
